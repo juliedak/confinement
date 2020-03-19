@@ -1,9 +1,11 @@
 <h1>Rajouter une activité</h1>
 
 <%= simple_form_for(@activity) do |f| %>
-  <%= f.input  :title %>
+  <%= f.input :title %>
   <%= f.input :content %>
   <%= f.input :duration %>
   <%= f.input :difficulty %>
-  <%= f.submit "Rajouter" %>
+  <%= f.submit "Rajouter", class: "btn btn-primary" %>
 <% end %>
+
+<%= link_to "Retourner aux activités", activities_path, class: "btn btn-primary"  %>

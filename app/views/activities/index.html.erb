@@ -1,6 +1,7 @@
 <h1>Liste d'activités</h1>
 
-
 <% @activities.each do |activity| %>
-  <%= link_to activity.title, activity_path(@activity) %>
+  <%= link_to activity.title, activity_path(activity) %>
 <% end %>
+
+<%= link_to "Rajouter", new_activity_path, class:'btn btn-primary' %>
