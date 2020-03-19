@@ -1,0 +1,10 @@
+<h2><%= @activity.name %></h2>
+<p><%= @activity.content %></p>
+<p><%= @activity.duration %></p>
+<p><%= @activity.difficulty %></p>
+
+<p><%= "Souhaitez-vous rajouter une revue?" %></p>
+  <%= simple_form_for[@activity, @review] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Rajouter", class: "btn btn-primary" %>
+  <% end %>
