@@ -1,7 +1,24 @@
-<h1>Liste d'activités</h1>
 
-<% @activities.each do |activity| %>
-  <%= link_to activity.title, activity_path(activity) %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);">
+  <div class="container">
+    <h1>En cette période de confinement, <strong> occupons-nous !</strong>
+  </div>
+</div>
 
-<%= link_to "Rajouter", new_activity_path, class:'btn btn-primary' %>
+
+<div class="container">
+  <div class="row">
+    <% @activities.each do |activity| %>
+      <div class="col-4">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+          <a href="#">
+          <%= link_to activity.title, activity_path(activity) %>
+          </a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

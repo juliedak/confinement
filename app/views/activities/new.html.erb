@@ -5,6 +5,7 @@
   <%= f.input :content %>
   <%= f.input :duration %>
   <%= f.input :difficulty %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Rajouter", class: "btn btn-primary" %>
 <% end %>
 

@@ -27,7 +27,7 @@ film.save!
 puts "activity created"
 
 file3 = URI.open("https://res.cloudinary.com/dlh4cl5ih/image/upload/v1584617136/l7vdziqoht7ylnyz3yqr.jpg")
-domino = Activity.new(title: "Jouer au dominos", content: "Jouer aux dominos, c'est rigolo", duration: "15", difficulty: "1")
+domino = Activity.new(title: "Jouer aux dominos", content: "Jouer aux dominos, c'est rigolo", duration: "15", difficulty: "1")
 domino.photos.attach(io: file3, filename: ' ', content_type: 'image/jpg')
 domino.save!
 
@@ -44,7 +44,7 @@ puts "activity created"
 
 
 file6 = URI.open("https://res.cloudinary.com/dlh4cl5ih/image/upload/v1584617147/hswnl8aonaffqngbfccu.jpg")
-kapla = Activity.new(title: "Jouer au dominos", content: "Jouer aux dominos, c'est rigolo", duration: "15", difficulty: "1")
+kapla = Activity.new(title: "Jouer aux kapla", content: "Jouer aux dominos, c'est rigolo", duration: "15", difficulty: "1")
 kapla.photos.attach(io: file6, filename: ' ', content_type: 'image/jpg')
 kapla.save!
 

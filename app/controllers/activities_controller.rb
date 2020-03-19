@@ -32,6 +32,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title, :content, :duration, photos: [])
+    params.require(:activity).permit(:title, :content, :duration, :difficulty, photos: [])
   end
 end
