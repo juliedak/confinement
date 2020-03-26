@@ -4,6 +4,6 @@ class Activity < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
-  # validates :photo, presence: true
+  validates :photos, presence: true
 
 end

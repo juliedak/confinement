@@ -1,6 +1,13 @@
 <h2><%= @activity.title %></h2>
+<% @activity.photos.each do |photo| %>
+  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
 <p><%= @activity.content %></p>
 <p><%= @activity.duration %></p>
 <p><%= @activity.difficulty %></p>
 
 <%= link_to "Retourner à la liste", activities_path, class:'btn btn-primary'  %>
+
+<%= link_to "Supprimer", activity_path(@activity),
+     method: :delete,
+    data: { confirm: "Are you sure?" }%>
