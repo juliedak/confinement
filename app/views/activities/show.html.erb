@@ -1,21 +1,73 @@
-<h2><%= @activity.title %></h2>
-<% @activity.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
-<p><%= @activity.content %></p>
 
-<%= link_to "Retourner à la liste", activities_path, class:'btn btn-primary'  %>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators" style="height: 1vh;margin-bottom: 7%;">
+  <div class="container_carousel">
+    <h1><%= @activity.title %>
+    <p><%= @activity.content %></p>
+    <%= link_to "Rajouter une review", new_activity_review_path(@activity), class:"btn btn-white"  %>
+  </div>
+    <%if @activity.photos.attached?%>
+      <% @activity.photos.each_with_index do |photo, index| %>
+        <% if index == 0 %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <% else %>
+          <li data-target="#carouselExampleIndicators" data-slide-to="<%= index %>"></li>
+        <% end %>
+      <% end %>
+    <% else %>
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <% end %>
+  </ol>
 
-<%= link_to "Supprimer", activity_path(@activity),
-     method: :delete,
-    data: { confirm: "Are you sure?" }%>
 
-<%= link_to "Rajouter une review", new_activity_review_path(@activity)  %>
+  <div class="carousel-inner rounded-top-corner">
+    <%if @activity.photos.attached?%>
+      <% @activity.photos.each_with_index do |photo, index| %>
+        <% if index == 0 %>
+          <% active_photo = "active" %>
+        <% else %>
+          <% active_photo = "  " %>
+        <% end %>
+      <div class="carousel-item <%= active_photo %>">
+      <%= cl_image_tag photo.key, class: "justify-content-center w-100", style: "height:65vh;object-fit:cover;"%>
+     </div>
+     <% end %>
+    <% else %>
+      <%= image_tag "download.jpeg", alt: "First slide", class: "d-block w-100" %>
+    <% end %>
+  </div>
 
-<h3> Reviews </h3>
-
-<ul class="list-group">
-  <% @activity.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.content %></li>
+  <%if @activity.photos.attached?%>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
   <% end %>
-</ul>
+</div>
+
+<div class="btn_under_banner">
+  <%= link_to "Retourner à la liste", activities_path, class:'btn btn-ghost'  %>
+
+  <%= link_to "Supprimer", activity_path(@activity), class:'btn btn-ghost',
+       method: :delete,
+      data: { confirm: "Are you sure?" }%>
+</div>
+
+
+<div class="container_review">
+  <h3> Reviews </h3>
+  <ul class="list-group">
+    <% @activity.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+<%# @activity.photos.each do |photo| %>
+  <%#= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+<%# end %>

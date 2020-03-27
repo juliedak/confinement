@@ -40,7 +40,7 @@ cooking = Activity.new(title: "Cuisiner", content: "Si vous avez des idées de r
 cooking.photos.attach([{io: file4, filename: " ", content_type: 'image/jpg'}, {io: file5, filename: " ", content_type: 'image/jpg'}])
 cooking.save!
 
-puts "activity created"
+puts "cooking created"
 
 
 file6 = URI.open("https://res.cloudinary.com/dlh4cl5ih/image/upload/v1584617147/hswnl8aonaffqngbfccu.jpg")
