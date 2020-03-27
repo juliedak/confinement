@@ -10,4 +10,12 @@
      method: :delete,
     data: { confirm: "Are you sure?" }%>
 
-<%#= link_to "Rajouter un commentaire",  %>
+<%= link_to "Rajouter une review", new_activity_review_path(@activity)  %>
+
+<h3> Reviews </h3>
+
+<ul class="list-group">
+  <% @activity.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>

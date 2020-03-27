@@ -7,22 +7,18 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
+    @activity = Activity.find(params[:activity_id])
     @review.activity = @activity
-    @review.save
-    redirect_to activity_path(@activity)
-  end
-
-  def update
-
-  end
-
-  def destroy
-
+    if @review.save
+      redirect_to activity_path(@activity)
+    else
+      render :new
+    end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(:content, :activity_id)
   end
 end
