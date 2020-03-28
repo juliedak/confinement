@@ -1,7 +1,6 @@
 <%= simple_form_for [@activity, @review] do |f| %>
   <%= f.input :content %>
-  <%= f.submit, class: "btn btn-primary", data: { confirm: "Confirm your  review for #{@activity.title}?" }%>
-  <%= f.submit, class: "btn btn-primary", id: "sweet-alert-demo" %>
+  <%= f.button :submit, class: "btn btn-primary", id: "sweet-alert-demo" %>
 <% end %>
 
 

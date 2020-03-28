@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :activity, dependent: :destroy
+  belongs_to :activity
 
   validates :content, presence: true
 end

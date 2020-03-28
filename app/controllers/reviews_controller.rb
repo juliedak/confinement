@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @activity = Activity.find(params[:activity_id])
     @review.activity = @activity
-    if @review.save
+    if @review.save!
+       sleep 3
       redirect_to activity_path(@activity)
     else
       render :new
