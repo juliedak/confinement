@@ -1,5 +1,5 @@
 {
-  "name": "_confinement_activities",
+  "name": "confinement",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
+    "sweetalert": "^2.1.2",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

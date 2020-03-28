@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: _confinement_activities_development
+  database: confinement_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: _confinement_activities_test
+  database: confinement_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: _confinement_activities_production
-  username: _confinement_activities
-  password: <%= ENV['_CONFINEMENT_ACTIVITIES_DATABASE_PASSWORD'] %>
+  database: confinement_production
+  username: confinement
+  password: <%= ENV['CONFINEMENT_DATABASE_PASSWORD'] %>
