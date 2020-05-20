@@ -1,5 +1,6 @@
 <%= simple_form_for [@activity, @review] do |f| %>
-  <%= f.input :content %>
+  <%= f.input :rating, collection: 0..5, default: 3,  label: "Rating", label: false%>
+  <div id="review-comment"><%= f.input :content, class: "col-10 m-0 input-show", placeholder: "Give a feedback", label: false %></div>
   <%= f.button :submit, class: "btn btn-primary", id: "sweet-alert-demo" %>
 <% end %>
 

@@ -62,10 +62,14 @@
   <h3> Reviews </h3>
   <ul class="list-group">
     <% @activity.reviews.each do |review| %>
-      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item">
+        <p><%= review.content %></p>
+      </li>
     <% end %>
   </ul>
 </div>
+
+
 
 
 <%# @activity.photos.each do |photo| %>
